@@ -1,14 +1,30 @@
-# factory-bot-blog
+# effective-testing-using-factory-bot
 
 [![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
-> Blog helper for Factory Bot
+> App to help factory bot blog
 
 ## Table of Contents
 
-- [Maintainers](#maintainers)
-- [Contributing](#contributing)
-- [License](#license)
+- [effective-testing-using-factory-bot](#effective-testing-using-factory-bot)
+  - [Table of Contents](#Table-of-Contents)
+  - [Install](#Install)
+  - [Usage](#Usage)
+  - [Maintainers](#Maintainers)
+  - [Contributing](#Contributing)
+  - [License](#License)
+
+## Install
+
+```
+bundle install
+```
+
+## Usage
+
+```
+rspec spec/models/user_spec.rb
+```
 
 ## Maintainers
 
