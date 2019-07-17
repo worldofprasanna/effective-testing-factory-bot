@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   context 'user creation' do
     it 'should check if the user is created' do
-      viewer = FactoryBot.create(:user, :with_role)
-      admin_user = FactoryBot.create(:user, :with_role, role_name: 'admin')
+      viewer = FactoryBot.create(:user)
+      admin_user = FactoryBot.create(:user, role_name: 'admin')
 
       expect(viewer).not_to be_nil
       expect(viewer.role.name).to eq('viewer')
@@ -13,12 +13,19 @@ RSpec.describe User, type: :model do
       expect(admin_user.role.name).to eq('admin')
     end
 
-    it 'should create admin user with 10 articles' do
-      admin_user_with_articles = FactoryBot.create(:admin_user_with_articles)
+    it 'should create user with Microsoft company as the client' do
+      user = FactoryBot.create(:user, :with_client, client_name: 'Microsoft')
+
+      expect(user.client.name).to eq('Microsoft')
+    end
+
+    it 'should create admin user with 5 articles and with ABC Company as client' do
+      admin_user_with_articles = FactoryBot.create(:admin_user_with_articles_with_client, role_name: 'admin')
 
       expect(admin_user_with_articles).not_to be_nil
       expect(admin_user_with_articles.role.name).to eq('admin')
       expect(admin_user_with_articles.articles.count).to eq(5)
+      expect(admin_user_with_articles.client.name).to eq('ABC Company')
     end
   end
 
